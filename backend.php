@@ -4,10 +4,10 @@ session_start();
 $log="";
 date_default_timezone_set('UTC');
 try {
-    $username="ofgow6mk9e1xioy5";
-    $password="flqdfy1eukucv94x";
+    $username="xshxjf69e9rp2lbr";
+    $password="guixzxjk0v1ffqk2";
     $host="frwahxxknm9kwy6c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-    $data="pq9cb6wcaf5inmsr";
+    $data="ge62b2pbpn608gs8";
     $pdo = new PDO('mysql:host=$host;dbname=$data', $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
