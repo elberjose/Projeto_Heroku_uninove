@@ -79,7 +79,7 @@
 				<label class="line">Data de <p></p>Nascimento:	</label>
 				<input type="date" class="form-control" id="data_nas" placeholder="Insira seu emai aqui" required>
 
-				<label>Empresa:	</label>
+				<label>CNJP:	</label>
 				<input type="text" class="form-control" id="empresa" placeholder="Insira sua Empresa aqui" required>
 			</div>
 		</div>

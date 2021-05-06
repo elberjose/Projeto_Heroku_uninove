@@ -5,11 +5,21 @@ $log="";
 date_default_timezone_set('UTC');
 
 $url = getenv('JAWSDB_URL');
-$dbparts = parse_url($url);
-$hostname = $dbparts['host'];
-$username = $dbparts['user'];
-$password = $dbparts['pass'];
-$database = ltrim($dbparts['path'],'/');
+
+if (isset($url)) {
+    $hostname ="localhost";
+    $password ="";
+    $username ="root";
+    $database ="datablaster";
+}else{
+    $dbparts = parse_url($url);
+    $hostname = $dbparts['host'];
+    $password = $dbparts['pass'];
+    $username = $dbparts['user'];
+    $database = ltrim($dbparts['path'],'/');
+}
+
+
 
 
 try {
@@ -17,7 +27,7 @@ try {
 }
 catch(PDOException $e)
     {
-    echo "Connection failed: " . $e->getMessage();
+    echo "Recarrege a pagina Erro : " . $e->getMessage();
     }
 
 
@@ -60,29 +70,27 @@ if(isset($_POST['q'])){
             $cnpj=mb_strtoupper($_POST['empresa'],"utf-8");
             $setor=mb_strtoupper($_POST['setor'],"utf-8");
             $cargo=mb_strtoupper($_POST['cargo'],"utf-8");
-            $valido=0;
+            $valido=1;
         
             $consulta = $pdo->prepare("SELECT cnpj FROM cadastro_empresa WHERE valido=:valido and cnpj=:cnpj");
             $consulta->execute(array(':cnpj' => $cnpj,':valido'=> $valido));
-
-            $resuldado = $consulta->fetch(PDO::FETCH_ASSOC);
-            
+           
             if ($consulta->rowCount()) {
                 try {
-                    $consulta= $pdo->prepare("INSERT INTO cadastro_do_usuario
-                        VALUES (:login,:nome,:senha,:nasc,:email,,:setor,:cargo,:empresa)");
-                    $consulta->execute(array(
+                    $cad= $pdo->prepare("INSERT INTO cadastro_do_usuario(login, nome_u,senha,data_nascimento,email,setor,cargo,cnpj)
+                        VALUES (:login,:nome,:senha,:data_n,:email,:setor,:cargo,:empresa)");
+                    $cad->execute(array(
                         ':nome'=>$nome_c,
                         ':login'=>$login,
                         ':senha'=>$senha,
                         ':email'=>$email,
-                        ':nasc'=>$data_nascimento,
+                        ':data_n'=>$data_nascimento,
                         ':setor'=>$setor,
                         ':cargo'=>$cargo,
                         ':empresa'=>$cnpj
                     ));
 
-                    echo $consulta->rowCount();
+                    echo $cad->rowCount();
                 } catch ( PDOException $excecao ){
                     echo $excecao->getMessage();
                     exit();
@@ -141,8 +149,8 @@ if(isset($_POST['q'])){
           
 
             try {
-                $consulta= $pdo->prepare("INSERT INTO cadastro_empresa (cnpj, nome_e, cep, numero, cidade, obs, data_fundacao, email, telefone)
-                    VALUES (:cnpj, :nome_e, :cep, :numero, :cidade, :obs, :data_fundacao, :email, :telefone)");
+                $consulta=$pdo->prepare("INSERT INTO cadastro_empresa (cnpj, nome_e, cep, numero, cidade, obs, data_fundacao, email, telefone, valido)
+                    VALUES (:cnpj, :nome_e, :cep, :numero, :cidade, :obs, :data_fundacao, :email, :telefone,b'0')");
                 $consulta->execute(array(
                     ':cnpj'=>$cnpj,
                     ':nome_e'=>$nome_e,
@@ -155,9 +163,8 @@ if(isset($_POST['q'])){
                     ':telefone'=>$telefone
                 ));
 
-                if ($consulta->rowCount()) {
-                   echo "1";
-                }
+                echo $consulta->rowCount();
+
             } catch ( PDOException $excecao ){
                 echo $excecao->getMessage();
                 exit();

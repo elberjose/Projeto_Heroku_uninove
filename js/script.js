@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
 	$("#cnpj").mask("00.000.000/0000-00");
+	$("#empresa").mask("00.000.000/0000-00");
 	$("#tel").mask("(00)0000-00000");
-	
 	$("#cep").mask("00000-000");
 	$("#carga_avaria").mask("0000000000");
 	$("#carga_cce").mask("0000000000");
@@ -296,6 +296,7 @@ function cadastro(){
 	var email = document.getElementById('e-email').value;
 	var nasc = document.getElementById('data_nas').value;
 	var empresa = document.getElementById('empresa').value;
+	empresa=empresa.replace(/[^\d]/g, "");
 	var setor = document.getElementById('setor').value;
 	var cargo = document.getElementById('cargo').value;
 
@@ -329,9 +330,11 @@ function cadempresa() {
 	var complemeto="";
 	var q='cad_empresa';
 	var cnpj = document.getElementById('cnpj').value;
+	cnpj=cnpj.replace(/[^\d]/g, "");
 	var razao = document.getElementById('nome').value;
 	var email = document.getElementById('email').value;
 	var tele = document.getElementById('tel').value;
+	tele=tele.replace(/[^\d]/g, "");
 
 	var cep = document.getElementById('cep').value;
 	var cidade = document.getElementById('cidade').value;
@@ -344,7 +347,7 @@ function cadempresa() {
 	var fundacao = document.getElementById('fundacao').value;
 
 
-	var endereco =rua+", "+bairro+", "+uf+", "+complemeto;
+	var endereco =rua+", "+bairro+", "+uf+","+complemeto;
 
 	var dados ={'q':q, 'cnpj':cnpj,'razao':razao,'email':email,'tele':tele,'cep':cep,'cidade':cidade,
 			'numero':numero,'endereco':endereco,'fundacao':fundacao};
@@ -354,8 +357,8 @@ function cadempresa() {
         dataType : "text",             
         data: dados,
         success: function(ressult) {
-        	console.log("sdlvknas");
-			if (ressult=="1"){
+        	console.log(ressult);
+			if (!ressult){
 				erro("O cadastro seja validado<br>dentro de 24 Horas ele sera Liberado");
 				document.getElementById('form').reset();
 			}
