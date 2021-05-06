@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	$("#cnpj").mask("00.000.000/0000-00");
 	$("#tel").mask("(00)0000-00000");
-	$("#cep").mask("0000-000");
+	$("#cep").mask("00000-000");
 	$("#carga_avaria").mask("0000000000");
 	$("#carga_cce").mask("0000000000");
 	$("#carga_ccr").mask("0000000000");
