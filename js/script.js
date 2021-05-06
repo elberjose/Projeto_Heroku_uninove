@@ -111,9 +111,11 @@ function consulta_cnpj() {
 }
 function consultacad_cnpj() {
 	var q='consulta_cnpj';
-	var cnpj = document.getElementById('cnpj');
-	var dados={'q':q,'cnpj':cnpj.value};
-	var ressultado=false;
+	var cnpj = document.getElementById('cnpj').value;
+	cnpj=cnpj.replace(/[^\d]/g, "");
+
+	var dados={'q':q,'cnpj':cnpj};
+	
 	$.ajax({	
        	url: "./backend.php",
         method: "POST",
@@ -123,12 +125,11 @@ function consultacad_cnpj() {
         data: dados,
         success: function(ressult) {
         	if (ressult=="1")
-				ressultado=false;
+				return false;
         	else
-        		ressultado=true;
+        		return true;
         }
     });
-    return ressultado;
 }
 
 // CEP
@@ -201,7 +202,7 @@ function pesquisacep() {
 function validar() {
 	var valor=document.getElementById("cnpj").value;
 	if(valiCnpj(valor)==false){
-		document.getElementById('cnpj').value="";
+		document.getElementById('cnpj').focus();
 		erro("Revise seu CNPJ");
 	}else if(consultacad_cnpj()==false){
 		document.getElementById('cnpj').value="";
@@ -212,9 +213,9 @@ function validar() {
 
 function valiCnpj(val) {
 	
-    cnpj = val.replace(/[^\d]+/g,'');
+    cnpj = val.replace(/[^\d]/g, "");
  
-    if(cnpj == '') return false;
+    if(cnpj == "") return false;
      
     if (cnpj.length != 14)
         return false;

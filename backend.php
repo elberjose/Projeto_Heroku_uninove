@@ -112,15 +112,14 @@ if(isset($_POST['q'])){
         break;
 
         case 'consulta_cnpj':
-            $cnpj=mb_strtoupper(str_replace(".","", $_POST['cnpj']),"utf-8");
+            $cnpj=$_POST['cnpj'];
 
             try {
                 $consulta = $pdo->prepare("SELECT * FROM cadastro_empresa WHERE cnpj=:cnpj");
-                $consulta->execute(array(':cnpj' => $cnpj));
-                foreach ($consulta as $row) {
-                    if ($row) {
-                       echo "1";
-                    }
+                $consulta->execute(array(":cnpj" => $cnpj));
+                if ($consulta->rowCount()) {
+                   echo "1";
+                }
                     
                 }
             } catch ( PDOException $excecao ){
