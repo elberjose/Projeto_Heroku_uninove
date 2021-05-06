@@ -353,7 +353,7 @@ function cadempresa() {
 	var dados ={'q':q, 'cnpj':cnpj,'razao':razao,'email':email,'tele':tele,'cep':cep,'cidade':cidade,
 			'numero':numero,'endereco':endereco,'fundacao':fundacao};
 	$.ajax({	
-        url: "https://controledequalidade.herokuapp.com/backend.php",
+        url: "./backend.php",
         method: "POST",
         dataType : "text",             
         data: dados,
