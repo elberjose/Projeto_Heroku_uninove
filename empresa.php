@@ -32,7 +32,7 @@
     <div class="box">
     	<span onclick="fechar()">x</span>
 
-    	<p id="txt"> Info</p>
+    	<p id="txt"></p>
     	<br>
     	<button type="submit" class="btn" onclick="fechar()">FECHAR</button>
     </div>
@@ -46,7 +46,6 @@
 			<div class="form-group">
 				<label>CNPJ: </label>
 				<input type="text" class="form-control" id="cnpj" maxlength="18" placeholder="12.345.678/0001-90" onblur="validar()">
-				<span class="erro" id="erro_cnpj"></span>
 				<label>Razão Social: </label>
 				<input type="text" class="form-control" id="nome" placeholder="Ex.: CristianoSS" required>
 			</div>

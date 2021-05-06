@@ -98,7 +98,7 @@ if(isset($_POST['q'])){
 
             try {
                 $consulta = $pdo->prepare("SELECT * FROM cadastro_do_usuario WHERE login=:user");
-                $consulta->execute(array('user' => $user));
+                $consulta->execute(array(':user' => $user));
                 foreach ($consulta as $row) {
                     if ($row) {
                        echo "1";
@@ -116,7 +116,7 @@ if(isset($_POST['q'])){
 
             try {
                 $consulta = $pdo->prepare("SELECT * FROM cadastro_empresa WHERE cnpj=:cnpj");
-                $consulta->execute(array('cnpj' => $cnpj));
+                $consulta->execute(array(':cnpj' => $cnpj));
                 foreach ($consulta as $row) {
                     if ($row) {
                        echo "1";

@@ -102,7 +102,7 @@ function consulta_cnpj() {
         method: "POST",                    
         data: dados,
         success: function(ressult) {
-        	if (!ressult)
+        	if (ressult)
 				document.getElementById('cnpj').style.display="block";
         	else
         		document.getElementById('cnpj').style.display="none";
