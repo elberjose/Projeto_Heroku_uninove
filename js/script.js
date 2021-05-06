@@ -268,26 +268,24 @@ function valiCnpj(val) {
 //fazendo login e cadastrando
 function login_user(){
 
-	window.location.href = "user/index.php";
+	var q='login';
+	var user = document.getElementById('login').value;
+	var senha = document.getElementById('senha').value;;
 
-	// var q='login';
-	// var user = document.getElementById('login').value;
-	// var senha = document.getElementById('senha').value;;
-
-	// var dados ={'q':q, 'user': user ,'senha':senha};
-	// $.ajax({	
- //        url: "./backend.php",
- //        method: "POST",
- //        data: dados,
- //        success: function(ressult) {
- //        	if (ressult=="1"){
-	// 			window.location.href = "user/index.php";
-	// 		}else{
-	// 			erro(ressult);
-	// 		}
- //        }
- //    });
-	// return false;
+	var dados ={'q':q, 'user': user ,'senha':senha};
+	$.ajax({	
+        url: "./backend.php",
+        method: "POST",
+        data: dados,
+        success: function(ressult) {
+        	if (ressult=="1"){
+				window.location.href = "user/index.php";
+			}else{
+				erro(ressult);
+			}
+        }
+    });
+	return false;
 }
 
 function cadastro(){
