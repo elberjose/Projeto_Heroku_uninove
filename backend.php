@@ -154,7 +154,10 @@ if(isset($_POST['q'])){
                     ':email'=>$email,
                     ':telefone'=>$telefone
                 ));
-                echo $consulta->rowCount();
+                
+                if ($consulta->rowCount()) {
+                   echo "1";
+                }
             } catch ( PDOException $excecao ){
                 echo $excecao->getMessage();
                 exit();
