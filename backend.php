@@ -3,18 +3,26 @@ header('Content-Type: text/html; charset=utf-8');
 session_start();
 $log="";
 date_default_timezone_set('UTC');
-try {
-    $username="xshxjf69e9rp2lbr";
-    $password="guixzxjk0v1ffqk2";
-    $host="frwahxxknm9kwy6c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-    $data="ge62b2pbpn608gs8";
-    $pdo = new PDO('mysql:host=$host;dbname=$data', $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-} catch ( PDOException $excecao ){
-    echo $excecao->getMessage();
-    exit();
-}
+$url = getenv('JAWSDB_URL');
+$dbparts = parse_url($url);
+
+$hostname = $dbparts['host'];
+$username = $dbparts['user'];
+$password = $dbparts['pass'];
+$database = ltrim($dbparts['path'],'/');
+
+
+try {
+    $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
+    }
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
 
 
 if(isset($_POST['q'])){
