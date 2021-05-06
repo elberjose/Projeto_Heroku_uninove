@@ -115,7 +115,7 @@ if(isset($_POST['q'])){
             $cnpj=$_POST['cnpj'];
 
             try {
-                $consulta = $pdo->prepare("SELECT * FROM 'ge62b2pbpn608gs8'.'cadastro_empresa' WHERE cnpj=:cnpj");
+                $consulta = $pdo->prepare("SELECT * FROM ge62b2pbpn608gs8.cadastro_empresa WHERE cnpj=:cnpj");
                 $consulta->execute(array(":cnpj" => $cnpj));
                     if ($consulta->rowCount()) {
                        echo "1";
