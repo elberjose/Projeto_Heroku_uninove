@@ -353,6 +353,7 @@ function cadempresa() {
         method: "POST",
         dataType : "text",             
         data: dados,
+        console.log("sdlvknas");
         success: function(ressult) {
 			if (ressult=="1"){
 				erro("O cadastro seja validado<br>dentro de 24 Horas ele sera Liberado");

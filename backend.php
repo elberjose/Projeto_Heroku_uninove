@@ -130,15 +130,17 @@ if(isset($_POST['q'])){
 
         case 'cad_empresa':
 
-            $cnpj=mb_strtoupper($_POST['cnpj'],"utf-8");
+            $cnpj=$_POST['cnpj'];
             $nome_e=mb_strtoupper($_POST['razao'],"utf-8");
-            $cep=mb_strtoupper($_POST['cep'],"utf-8");
+            $cep=$_POST['cep'];
             $numero=mb_strtoupper($_POST['numero'],"utf-8");
             $cidade=mb_strtoupper($_POST['cidade'],"utf-8");
             $obs=mb_strtoupper($_POST['endereco'],"utf-8");
-            $data_fundacao=mb_strtoupper($_POST['fundacao'],"utf-8");
+            $data_fundacao=$_POST['fundacao'];
             $email=mb_strtoupper($_POST['email'],"utf-8");
-            $telefone=mb_strtoupper($_POST['tele'],"utf-8");
+            $telefone=$_POST['tele'];
+
+            
 
             try {
                 $consulta= $pdo->prepare("INSERT INTO cadastro_empresa (cnpj, nome_e, cep, numero, cidade, obs, data_fundacao, email, telefone)
@@ -154,7 +156,7 @@ if(isset($_POST['q'])){
                     ':email'=>$email,
                     ':telefone'=>$telefone
                 ));
-                
+
                 if ($consulta->rowCount()) {
                    echo "1";
                 }
