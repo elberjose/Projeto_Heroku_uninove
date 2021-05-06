@@ -6,7 +6,6 @@ date_default_timezone_set('UTC');
 
 $url = getenv('JAWSDB_URL');
 $dbparts = parse_url($url);
-
 $hostname = $dbparts['host'];
 $username = $dbparts['user'];
 $password = $dbparts['pass'];
@@ -15,6 +14,7 @@ $database = ltrim($dbparts['path'],'/');
 
 try {
     $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+}
 catch(PDOException $e)
     {
     echo "Connection failed: " . $e->getMessage();
@@ -117,11 +117,10 @@ if(isset($_POST['q'])){
             try {
                 $consulta = $pdo->prepare("SELECT * FROM cadastro_empresa WHERE cnpj=:cnpj");
                 $consulta->execute(array(":cnpj" => $cnpj));
-                if ($consulta->rowCount()) {
-                   echo "1";
-                }
+                    if ($consulta->rowCount()) {
+                       echo "1";
+                    }
                     
-                }
             } catch ( PDOException $excecao ){
                 echo $excecao->getMessage();
                 exit();
@@ -139,8 +138,7 @@ if(isset($_POST['q'])){
             $data_fundacao=$_POST['fundacao'];
             $email=mb_strtoupper($_POST['email'],"utf-8");
             $telefone=$_POST['tele'];
-
-            
+          
 
             try {
                 $consulta= $pdo->prepare("INSERT INTO cadastro_empresa (cnpj, nome_e, cep, numero, cidade, obs, data_fundacao, email, telefone)
