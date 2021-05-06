@@ -337,6 +337,7 @@ function cadempresa() {
 	tele=tele.replace(/[^\d]/g, "");
 
 	var cep = document.getElementById('cep').value;
+	cep=cep.replace(/[^\d]/g, "");
 	var cidade = document.getElementById('cidade').value;
 	var numero = document.getElementById('numero').value;
 	
