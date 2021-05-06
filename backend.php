@@ -5,7 +5,7 @@ $log="";
 date_default_timezone_set('UTC');
 
 $url = getenv('JAWSDB_URL');
-var_dump($url);
+
     $dbparts = parse_url($url);
     $hostname = $dbparts['host'];
     $password = $dbparts['pass'];
@@ -115,7 +115,7 @@ if(isset($_POST['q'])){
             $cnpj=$_POST['cnpj'];
 
             try {
-                $consulta = $pdo->prepare("SELECT * FROM cadastro_empresa WHERE cnpj=:cnpj");
+                $consulta = $pdo->prepare("SELECT * FROM 'ge62b2pbpn608gs8'.'cadastro_empresa' WHERE cnpj=:cnpj");
                 $consulta->execute(array(":cnpj" => $cnpj));
                     if ($consulta->rowCount()) {
                        echo "1";
@@ -141,7 +141,7 @@ if(isset($_POST['q'])){
           
 
             try {
-                $consulta=$pdo->prepare("INSERT INTO cadastro_empresa (cnpj, nome_e, cep, numero, cidade, obs, data_fundacao, email, telefone, valido)
+                $consulta=$pdo->prepare("INSERT INTO 'ge62b2pbpn608gs8'.'cadastro_empresa' (cnpj, nome_e, cep, numero, cidade, obs, data_fundacao, email, telefone, valido)
                     VALUES (:cnpj, :nome_e, :cep, :numero, :cidade, :obs, :data_fundacao, :email, :telefone,b'0')");
                 $consulta->execute(array(
                     ':cnpj'=>$cnpj,
