@@ -63,7 +63,7 @@
 		<div class="row">
 			<div class="form-group">
 				<label>CEP:</label>
-				<input type="text" id="cep" class="form-control" maxlength="9" onblur="pesquisacep();" placeholder="Ex.: 00000-000"/>
+				<input type="text" id="cep" class="form-control" maxlength="10" onblur="pesquisacep();" placeholder="Ex.: 00000-000"/>
                	<label>Rua:	</label>
 				<input type="text" id="rua" class="form-control" placeholder="Ex.: ABC"/>
 			</div>
