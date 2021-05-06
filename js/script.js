@@ -268,7 +268,7 @@ function valiCnpj(val) {
 //fazendo login e cadastrando
 function login_user(){
 
-	window.location.href = "http://controledequalidade.herokuapp.com/user/index.php";
+	window.location.href = "user/index.php";
 
 	// var q='login';
 	// var user = document.getElementById('login').value;
