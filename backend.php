@@ -142,7 +142,7 @@ if(isset($_POST['q'])){
 
             try {
                 $consulta=$pdo->prepare("INSERT INTO 'ge62b2pbpn608gs8'.'cadastro_empresa' (cnpj, nome_e, cep, numero, cidade, obs, data_fundacao, email, telefone, valido)
-                    VALUES (:cnpj, :nome_e, :cep, :numero, :cidade, :obs, :data_fundacao, :email, :telefone,b'0')");
+                    VALUES (:cnpj, :nome_e, :cep, :numero, :cidade, :obs, :data_fundacao, :email, :telefone,:valido)");
                 $consulta->execute(array(
                     ':cnpj'=>$cnpj,
                     ':nome_e'=>$nome_e,
@@ -152,7 +152,8 @@ if(isset($_POST['q'])){
                     ':obs'=>$obs,
                     ':data_fundacao'=>$data_fundacao,
                     ':email'=>$email,
-                    ':telefone'=>$telefone
+                    ':telefone'=>$telefone,
+                    ':valido'=>0
                 ));
 
                 echo $consulta->rowCount();
