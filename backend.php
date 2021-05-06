@@ -140,6 +140,7 @@ if(isset($_POST['q'])){
             $telefone=$_POST['tele'];
           
 
+
             try {
                 $consulta=$pdo->prepare("INSERT INTO 'ge62b2pbpn608gs8'.'cadastro_empresa' (cnpj, nome_e, cep, numero, cidade, obs, data_fundacao, email, telefone, valido)
                     VALUES (:cnpj, :nome_e, :cep, :numero, :cidade, :obs, :data_fundacao, :email, :telefone,:valido)");
