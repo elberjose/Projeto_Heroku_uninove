@@ -5,14 +5,12 @@ $log="";
 date_default_timezone_set('UTC');
 
 $url = getenv('JAWSDB_URL');
-
+var_dump($url);
     $dbparts = parse_url($url);
     $hostname = $dbparts['host'];
     $password = $dbparts['pass'];
     $username = $dbparts['user'];
     $database = ltrim($dbparts['path'],'/');
-
-
 
 
 
