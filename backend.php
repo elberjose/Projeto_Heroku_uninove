@@ -12,8 +12,6 @@ $url = getenv('JAWSDB_URL');
     $username = $dbparts['user'];
     $database = ltrim($dbparts['path'],'/');
 
-
-
 try {
     debug_to_console(date('i'));
     $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
@@ -354,3 +352,12 @@ elseif(isset($_POST['tela'])){
     }
 }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SAi</title>
+</head>
+<body>
+Opa
+</body>
+</html>
