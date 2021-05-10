@@ -53,7 +53,7 @@ function erro(argument) {
 
 // consultar igualdade de entradas
 function senha() {
-	var id1=document.getElementById('p-senha');
+	var id1=document.getElementById('new-password');
 	var id2=document.getElementById('con-senha');
 
 	if (id1.value != id2.value){

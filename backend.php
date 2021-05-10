@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('UTC');
-
+require('vendor/autoload.php');
 try {
     $url = getenv('JAWSDB_URL');
     $dbparts = parse_url($url);
