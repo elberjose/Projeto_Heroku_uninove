@@ -78,7 +78,7 @@ function consulta() {
 	var user = document.getElementById('login').value;
 	var dados={'q':q,'user':user};
 	$.ajax({	
-        url: "./backend.php",
+        url: "../backend.php",
         method: "POST",                    
         data: dados,
         success: function(ressult) {
