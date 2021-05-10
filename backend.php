@@ -141,7 +141,7 @@ if(isset($_POST['q'])){
 
 
             try {
-                $consulta=$pdo->prepare("INSERT INTO 'ge62b2pbpn608gs8'.'cadastro_empresa' (cnpj, nome_e, cep, numero, cidade, obs, data_fundacao, email, telefone, valido)
+                $consulta=$pdo->prepare("INSERT INTO cadastro_empresa (cnpj, nome_e, cep, numero, cidade, obs, data_fundacao, email, telefone, valido)
                     VALUES (:cnpj, :nome_e, :cep, :numero, :cidade, :obs, :data_fundacao, :email, :telefone,:valido)");
                 $consulta->execute(array(
                     ':cnpj'=>$cnpj,
