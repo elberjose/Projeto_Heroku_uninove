@@ -59,23 +59,3 @@
 </form>
 </body>
 </html>
-<?php
-
-$url = getenv('JAWSDB_URL');
-
-    $dbparts = parse_url($url);
-    $hostname = $dbparts['host'];
-    $password = $dbparts['pass'];
-    $username = $dbparts['user'];
-    $database = ltrim($dbparts['path'],'/');
-
-
-
-try {
-    $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
-}
-catch(PDOException $e)
-    {
-    echo "Recarrege a pagina Erro : " . $e->getMessage();
-    }
-?>
