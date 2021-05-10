@@ -15,6 +15,7 @@ $url = getenv('JAWSDB_URL');
 
 
 try {
+    debug_to_console(date('i'));
     $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
 }
 catch(PDOException $e)
