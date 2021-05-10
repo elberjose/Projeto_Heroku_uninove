@@ -1,25 +1,19 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
-session_start();
-$log="";
 date_default_timezone_set('UTC');
 
-$url = getenv('JAWSDB_URL');
-
+try {
+    $url = getenv('JAWSDB_URL');
     $dbparts = parse_url($url);
     $hostname = $dbparts['host'];
     $password = $dbparts['pass'];
     $username = $dbparts['user'];
     $database = ltrim($dbparts['path'],'/');
 
-try {
-    debug_to_console(date('i'));
     $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
 }
-catch(PDOException $e)
-    {
+catch(PDOException $e) {
     echo "Recarrege a pagina Erro : " . $e->getMessage();
-    }
+}
 
 
 if(isset($_POST['q'])){
@@ -36,6 +30,7 @@ if(isset($_POST['q'])){
                 'senha' => $senha));
 
            if ($consulta->rowCount()) {
+                session_start();
                 echo "1";
                 if (empty($_SESSION['user'])) {
                     $_SESSION['user'] = $user;
@@ -47,7 +42,7 @@ if(isset($_POST['q'])){
             }else{
                 echo "Usuario não encontrado";
             }
-            
+            $pdo = null;
             
             
         break;
@@ -89,6 +84,7 @@ if(isset($_POST['q'])){
             }else{
                 echo "CPNJ não encontrado na nossa Base de dados<br>Empresa aguardando validação";
             }
+            $pdo = null;
 
         break;
 
@@ -108,6 +104,7 @@ if(isset($_POST['q'])){
                 echo $excecao->getMessage();
                 exit();
             }
+            $pdo = null;
         break;
 
         case 'consulta_cnpj':
@@ -124,6 +121,7 @@ if(isset($_POST['q'])){
                 echo $excecao->getMessage();
                 exit();
             }
+            $pdo = null;
         break;
 
         case 'cad_empresa':
@@ -162,6 +160,7 @@ if(isset($_POST['q'])){
                 echo $excecao->getMessage();
                 exit();
             }
+            $pdo = null;
         break;
         case 'sair':
             session_start();
@@ -181,7 +180,6 @@ if(isset($_POST['q'])){
 
 elseif(isset($_POST['tela'])){
     $tela=$_POST['tela'];
-
     switch ($tela) {
         case 'avaria':
             $placa=str_replace("-","", $_POST["placa"]);
@@ -224,6 +222,7 @@ elseif(isset($_POST['tela'])){
                 echo $excecao->getMessage();
                 exit();
             }
+            $pdo = null;
         break;
         
         case 'ccr':
@@ -267,6 +266,7 @@ elseif(isset($_POST['tela'])){
                 echo $excecao->getMessage();
                 exit();
             }
+            $pdo = null;
         break;
 
         case 'cce':
@@ -299,6 +299,7 @@ elseif(isset($_POST['tela'])){
                 echo $excecao->getMessage();
                 exit();
             }
+            $pdo = null;
         break;
 
         case 'recolha':
@@ -323,6 +324,7 @@ elseif(isset($_POST['tela'])){
                 echo $excecao->getMessage();
                 exit();
             }
+            $pdo = null;
         break;
         
         case 'SKU':
@@ -345,19 +347,11 @@ elseif(isset($_POST['tela'])){
                 echo $excecao->getMessage();
                 exit();
             }
+            $pdo = null;
         break;
         default:
-            # code...
+            $pdo = null;
             break;
     }
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>SAi</title>
-</head>
-<body>
-Opa
-</body>
-</html>

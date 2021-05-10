@@ -1,9 +1,9 @@
 <?php
 	session_start();
-		if(!isset($_SESSION['user'])){
-			header("Location: ../");
-			die();
-		} 
+	if(!isset($_SESSION['id_user'])){
+		header("Location: ../");
+		die();
+	} 
  ?>
 <!DOCTYPE html>
 <html>
