@@ -55,7 +55,7 @@
 		<div class="row">
 			<div class="form-group">
 				<label>Senha:</label>
-				<input type="password" class="form-control" id="p-senha" placeholder="Senha" required>
+				<input type="password" class="form-control" id="new-password" placeholder="Senha" required>
 
 				<label>Senha: </label>
 				<input type="password" class="form-control" id="con-senha" placeholder="Confirme Sua Senha" required autocomplete="off" onblur="senha()">

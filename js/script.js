@@ -293,7 +293,7 @@ function cadastro(){
 	var q='cadastro';
 	var nome = document.getElementById('nome').value;
 	var login = document.getElementById('login').value;
-	var senha = document.getElementById('p-senha').value;
+	var senha = document.getElementById('new-password').value;
 	var email = document.getElementById('e-email').value;
 	var nasc = document.getElementById('data_nas').value;
 	var empresa = document.getElementById('empresa').value;
