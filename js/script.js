@@ -492,7 +492,7 @@ function sku() {
 		method: "POST",
 		data: dados,
 		success:function(ressult) {
-			var r=ressult.slit("¨");
+			var r=ressult.split("¨");
 			console.log(r);
 		}
 	});
