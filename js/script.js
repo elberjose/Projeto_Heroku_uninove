@@ -379,10 +379,12 @@ function cadempresa() {
 //funcoes para exibir as telas
 function tela(telas) {
 	var funcoes=['form-avaria','form-ccr','form-cce','form-recolha','sku-consulta'];
+
 	funcoes.forEach(function(element){
 		document.getElementById(element).style.display="none";
 		document.getElementById(element).reset();
 	});
+
 	document.getElementById(telas).style.display="block";
 
 }
@@ -496,8 +498,19 @@ function sku() {
 	});
 }
 
-function skuConsulta(argument) {
-	console.log(argument);
+function skuConsulta(code,name) {
+	var tela=name;
+
+
+	var dados ={'tela':'consulta','numero':code,'nome':name};
+	$.ajax({	
+        url: "../backend.php",
+        method: "POST",                    
+        data: dados,
+        success: function(ressult) {
+			console.log(ressult);
+        }
+    });
 }
 
 

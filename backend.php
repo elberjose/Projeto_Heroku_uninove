@@ -330,7 +330,7 @@ elseif(isset($_POST['tela'])){
         
         case 'SKU':
             try {
-                $consulta= $pdo->query("SELECT sku.N_processo,sku.nome_process,sku.data_processo,cadastro_do_usuario.login FROM sku INNER JOIN cadastro_do_usuario");
+                $consulta= $pdo->query("SELECT sku.N_processo,sku.nome_process,sku.data_processo,cadastro_do_usuario.login FROM sku INNER JOIN cadastro_do_usuario ON sku.id_user=cadastro_do_usuario.id_user");
                 foreach($consulta as $row) {
                     $data=implode("/",array_reverse(explode("-",$row["data_processo"])));
                     print_r("
@@ -338,7 +338,7 @@ elseif(isset($_POST['tela'])){
                         <td>".$row["N_processo"]."</td>
                         <td>".$row["nome_process"]."</td>
                         <td>".$row["login"]."</td>
-                        <td>". $data."</td>
+                        <td>".$data."</td>
                         <td onclick='skuConsulta(".$row['N_processo'].",".$row["nome_process"].")'>&#x1f441;</td>
                     </tr>");
                 }
@@ -349,6 +349,35 @@ elseif(isset($_POST['tela'])){
             }
             $pdo = null;
         break;
+
+        case 'consulta':
+            $tabela=["AVARIA" =>"avaria",
+                   "RECEBIMENTO"=>"c_control_rec",
+                   "EXPEDICAO"=>"c_control_exp",
+                   "RECOLHA"=>"rac"
+               ];
+            $coluna=["AVARIA" =>"carga_v",
+                   "RECEBIMENTO"=>"carga_r",
+                   "EXPEDICAO"=>"OE",
+                   "RECOLHA"=>"carga_rac"
+               ];  
+            $numero=$_POST["numero"];
+            $nome=$_POST["nome"];
+
+            $pesquisa="SELECT * FROM ".$tabela=[$nome]." WHERE ".$coluna[$nome]."=".$numero;
+
+            try {
+                $consulta= $pdo->query($pesquisa);
+                foreach($consulta as $row) {
+                    var_dump($row);
+                }
+            } catch (PDOException $excecao) {
+                echo $excecao->getMessage();
+                exit();
+            }
+            $pdo = null;        
+        break;
+
         default:
             $pdo = null;
             break;
