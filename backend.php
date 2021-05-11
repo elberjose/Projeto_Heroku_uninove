@@ -339,7 +339,7 @@ elseif(isset($_POST['tela'])){
                         <td>".$row["nome_process"]."</td>
                         <td>".$row["login"]."</td>
                         <td>".$data."</td>
-                        <td onclick='skuConsulta(".$row['N_processo'].","".$row["nome_process"].""')'>&#x1f441;</td>
+                        <td onclick='skuConsulta(".$row['N_processo'].",'".$row['nome_process']."')'>&#x1f441;</td>
                     </tr>");
                 }
 
