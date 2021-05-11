@@ -26,27 +26,25 @@ if(isset($_POST['q'])){
             $senha=md5(mb_strtoupper($_POST['senha'],"utf-8"));
             $user=mb_strtoupper($_POST['user'],"utf-8");
             
-            $consulta = $pdo->prepare("SELECT login,id_user FROM cadastro_do_usuario WHERE login=:log  AND senha =:senha");
+            $consulta = $pdo->prepare("SELECT id_user FROM cadastro_do_usuario WHERE login=:log  AND senha =:senha");
             $consulta->execute(array(
                 'log' => $user,
                 'senha' => $senha));
 
            if ($consulta->rowCount()) {
                 session_start();
-                echo "1";
                 if (empty($_SESSION['user'])) {
                     $_SESSION['user'] = $user;
                      foreach($consulta as $row) {
                         $_SESSION['id_user']=$row['id_user'];
-                     }
-                    
+                        echo "1";
+                     } 
                 }
             }else{
                 echo "Usuario não encontrado";
             }
+
             $pdo = null;
-            
-            
         break;
 
         case 'cadastro':
@@ -60,7 +58,7 @@ if(isset($_POST['q'])){
             $cargo=mb_strtoupper($_POST['cargo'],"utf-8");
             $valido=1;
         
-            $consulta = $pdo->prepare("SELECT cnpj FROM cadastro_empresa WHERE valido=:valido and cnpj=:cnpj");
+            $consulta = $pdo->prepare("SELECT cnpj FROM cadastro_empresa WHERE valido=:valido and cnpj=:cnpj or nome_e=:cnpj");
             $consulta->execute(array(':cnpj' => $cnpj,':valido'=> $valido));
            
             if ($consulta->rowCount()) {
@@ -181,6 +179,7 @@ if(isset($_POST['q'])){
 
 
 elseif(isset($_POST['tela'])){
+    session_start();
     $tela=$_POST['tela'];
     switch ($tela) {
         case 'avaria':
@@ -330,7 +329,6 @@ elseif(isset($_POST['tela'])){
         break;
         
         case 'SKU':
-           
             try {
                 $consulta= $pdo->query("SELECT sku.N_processo,sku.nome_process,sku.data_processo,cadastro_do_usuario.login FROM sku INNER JOIN cadastro_do_usuario");
                 foreach($consulta as $row) {
@@ -341,7 +339,7 @@ elseif(isset($_POST['tela'])){
                         <td>".$row["nome_process"]."</td>
                         <td>".$row["login"]."</td>
                         <td>". $data."</td>
-                        <td onclick='skuConsulta(".$row['N_processo'].")'>&#x1f441;</td>
+                        <td onclick='skuConsulta(".$row['N_processo'].",".$row["nome_process"].")'>&#x1f441;</td>
                     </tr>");
                 }
 

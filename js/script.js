@@ -360,7 +360,7 @@ function cadempresa() {
         data: dados,
         success: function(ressult) {
         	console.log(ressult);
-			if (!ressult){
+			if (ressult=="1"){
 				erro("O cadastro seja validado<br>dentro de 24 Horas ele sera Liberado");
 				document.getElementById('form').reset();
 			}
