@@ -330,6 +330,11 @@ elseif(isset($_POST['tela'])){
         
         case 'SKU':
             try {
+                $teste=["AVARIA" =>1,
+                       "RECEBIMENTO"=>2,
+                       "EXPEDICAO"=>3,
+                       "RECOLHA"=>4
+               ];
                 $consulta= $pdo->query("SELECT sku.N_processo,sku.nome_process,sku.data_processo,cadastro_do_usuario.login FROM sku INNER JOIN cadastro_do_usuario ON sku.id_user=cadastro_do_usuario.id_user");
                 foreach($consulta as $row) {
                     $data=implode("/",array_reverse(explode("-",$row["data_processo"])));
@@ -339,7 +344,7 @@ elseif(isset($_POST['tela'])){
                         <td>".$row["nome_process"]."</td>
                         <td>".$row["login"]."</td>
                         <td>".$data."</td>
-                        <td onclick='skuConsulta(".$row['N_processo'].",'".$row['nome_process']."')'>&#x1f441;</td>
+                        <td onclick='skuConsulta(".$row['N_processo'].",".$teste[$row['nome_process']].")'>&#x1f441;</td>
                     </tr>");
                 }
 
@@ -351,15 +356,15 @@ elseif(isset($_POST['tela'])){
         break;
 
         case 'consulta':
-            $tabela=["AVARIA" =>"avaria",
-                   "RECEBIMENTO"=>"c_control_rec",
-                   "EXPEDICAO"=>"c_control_exp",
-                   "RECOLHA"=>"rac"
+            $tabela=[1 =>"avaria",
+                   2=>"c_control_rec",
+                   3=>"c_control_exp",
+                   4=>"rac"
                ];
-            $coluna=["AVARIA" =>"carga_v",
-                   "RECEBIMENTO"=>"carga_r",
-                   "EXPEDICAO"=>"OE",
-                   "RECOLHA"=>"carga_rac"
+            $coluna=[1 =>"carga_v",
+                   2=>"carga_r",
+                   3=>"OE",
+                   4=>"carga_rac"
                ];  
             $numero=$_POST["numero"];
             $nome=$_POST["nome"];
