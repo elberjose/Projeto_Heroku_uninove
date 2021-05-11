@@ -501,7 +501,6 @@ function sku() {
 function skuConsulta(code,name) {
 	var tela=name;
 
-
 	var dados ={'tela':'consulta','numero':code,'nome':name};
 	$.ajax({	
         url: "../backend.php",
