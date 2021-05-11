@@ -387,7 +387,7 @@ elseif(isset($_POST['tela'])){
                     echo $row[7]."¨";
                     echo $row[8]."¨";
                     echo $row[8]."¨";
-                    echo $row[9]."¨";
+                    echo $row[9];
                 }
             } catch (PDOException $excecao) {
                 echo $excecao->getMessage();

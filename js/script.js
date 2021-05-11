@@ -499,20 +499,60 @@ function sku() {
 }
 
 function skuConsulta(code,name) {
-	var tela=name;
-
+	var telas=["form-avaria","form-ccr","form-cce","form-recolha"];
 	var dados ={'tela':'consulta','numero':code,'nome':name};
+	
 	$.ajax({	
         url: "../backend.php",
         method: "POST",                    
         data: dados,
         success: function(ressult) {
-        	var r=ressult.split("¨");
-        	console.log(r);
+        	var variaveis=ressult.split("¨");
+       		addTela(variaveis,telas[name]);
         }
     });
 }
-
+function addTela(variaveis,telas) {
+	
+	switch (telas) {
+ 		case "form-avaria":
+ 			document.getElementById("placa_avaria").innerHTML=variaveis[0];
+ 			document.getElementById("carga_avaria").innerHTML=variaveis[2];
+ 			document.getElementById("produto_avaria").innerHTML=variaveis[3];
+ 			document.getElementById("motivo_avaria").innerHTML=variaveis[4];
+ 			document.getElementById("output1-avaria").src=variaveis[5];
+ 			document.getElementById("output1-avaria").src=variaveis[6];
+ 			document.getElementById("output1-avaria").src=variaveis[7];
+ 			document.getElementById("output1-avaria").src=variaveis[8];
+ 		break;
+ 		case "form-ccr":
+ 			document.getElementById("placa_ccr").innerHTML=variaveis[0];
+ 			document.getElementById("carga_ccr").innerHTML=variaveis[2];
+ 			document.getElementById("produto_ccr").innerHTML=variaveis[3];
+ 			document.getElementById("cliente_ccr").innerHTML=variaveis[4];
+ 			document.getElementById("output1-ccr").src=variaveis[5];
+ 			document.getElementById("output1-ccr").src=variaveis[6];
+ 			document.getElementById("output1-ccr").src=variaveis[7];
+ 			document.getElementById("output1-ccr").src=variaveis[8];
+ 		
+ 		break;
+ 		case "form-cce":
+ 			document.getElementById("placa_cce").innerHTML=variaveis[0];
+ 			document.getElementById("oe_cce").innerHTML=variaveis[2];
+ 			document.getElementById("confe_cce").innerHTML=variaveis[3];
+ 			document.getElementById("cliente_cce").innerHTML=variaveis[4];
+ 			document.getElementById("output1-cce").src=variaveis[5];
+ 			document.getElementById("output2-cce").src=variaveis[6];
+ 		break;
+ 		case "form-recolha":
+ 			document.getElementById("placa_rac").innerHTML=variaveis[0];
+ 			document.getElementById("num_rac").innerHTML=variaveis[2];
+ 			document.getElementById("produto_rac").innerHTML=variaveis[3];
+ 			document.getElementById("motivo_rac").innerHTML=variaveis[4];
+ 		break;
+ 	}
+ 	tela(telas);
+}
 
 
 
