@@ -372,8 +372,8 @@ elseif(isset($_POST['tela'])){
 
             $nome=$_POST["nome"];
 
-            $pesquisa="SELECT * FROM ".$tabela=[$nome]." WHERE ".$coluna[$nome]."=".$numero;
-            echo $pesquisa;
+            $pesquisa="SELECT * FROM ".$tabela[$nome]." WHERE ".$coluna[$nome]."=".$numero;
+            echo $pesquisa+"<br>";
             try {
                 $consulta= $pdo->query($pesquisa);
                 foreach($consulta as $row) {
