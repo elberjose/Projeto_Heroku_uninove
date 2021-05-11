@@ -492,8 +492,8 @@ function sku() {
 		method: "POST",
 		data: dados,
 		success:function(ressult) {
-			var add=document.getElementById("tabela_sku");
-			add.innerHTML =ressult;
+			var r=ressult.slit("¨");
+			console.log(r);
 		}
 	});
 }

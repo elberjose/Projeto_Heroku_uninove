@@ -377,17 +377,17 @@ elseif(isset($_POST['tela'])){
             try {
                 $consulta= $pdo->query($pesquisa);
                 foreach($consulta as $row) {
-                    echo "<span id='0'>".$row[0]."</span><br>";
-                    echo "<span id='1'>".$row[1]."</span><br>";
-                    echo "<span id='2'>".$row[2]."</span><br>";
-                    echo "<span id='3'>".$row[3]."</span><br>";
-                    echo "<span id='4'>".$row[4]."</span><br>";
-                    echo "<span id='5'>".$row[5]."</span><br>";
-                    echo "<span id='6'>".$row[6]."</span><br>";
-                    echo "<span id='7'>".$row[7]."</span><br>";
-                    echo "<span id='8'>".$row[8]."</span><br>";
-                    echo "<span id='8'>".$row[8]."</span><br>";
-                    echo "<span id='9'>".$row[9]."</span><br>";
+                    echo $row[0]."¨";
+                    echo $row[1]."¨";
+                    echo $row[2]."¨";
+                    echo $row[3]."¨";
+                    echo $row[4]."¨";
+                    echo $row[5]."¨";
+                    echo $row[6]."¨";
+                    echo $row[7]."¨";
+                    echo $row[8]."¨";
+                    echo $row[8]."¨";
+                    echo $row[9]."¨";
                 }
             } catch (PDOException $excecao) {
                 echo $excecao->getMessage();
