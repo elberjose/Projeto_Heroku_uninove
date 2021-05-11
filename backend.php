@@ -361,12 +361,15 @@ elseif(isset($_POST['tela'])){
                    3=>"c_control_exp",
                    4=>"rac"
                ];
+
             $coluna=[1 =>"carga_v",
                    2=>"carga_r",
                    3=>"OE",
                    4=>"carga_rac"
-               ];  
+               ]; 
+
             $numero=$_POST["numero"];
+
             $nome=$_POST["nome"];
 
             $pesquisa="SELECT * FROM ".$tabela=[$nome]." WHERE ".$coluna[$nome]."=".$numero;
@@ -374,7 +377,7 @@ elseif(isset($_POST['tela'])){
             try {
                 $consulta= $pdo->query($pesquisa);
                 foreach($consulta as $row) {
-                    var_dump($row);
+                    echo $row;
                 }
             } catch (PDOException $excecao) {
                 echo $excecao->getMessage();
