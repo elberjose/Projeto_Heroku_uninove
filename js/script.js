@@ -534,7 +534,6 @@ function addTela(variaveis,telas) {
  			document.getElementById("output1-ccr").src=variaveis[6];
  			document.getElementById("output1-ccr").src=variaveis[7];
  			document.getElementById("output1-ccr").src=variaveis[8];
- 		
  		break;
  		case "form-cce":
  			document.getElementById("placa_cce").value=variaveis[0];

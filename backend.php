@@ -97,8 +97,7 @@ if(isset($_POST['q'])){
                 foreach ($consulta as $row) {
                     if ($row) {
                        echo "1";
-                    }
-                    
+                    }                    
                 }
             } catch ( PDOException $excecao ){
                 echo $excecao->getMessage();
