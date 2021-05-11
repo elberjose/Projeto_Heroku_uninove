@@ -507,7 +507,8 @@ function skuConsulta(code,name) {
         method: "POST",                    
         data: dados,
         success: function(ressult) {
-			console.log(ressult);
+        	teste=ressult.document.getElementById("1").value;
+			console.log(teste);
         }
     });
 }
