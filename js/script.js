@@ -492,8 +492,8 @@ function sku() {
 		method: "POST",
 		data: dados,
 		success:function(ressult) {
-			var r=ressult.split("¨");
-			console.log(r);
+			var add=document.getElementById("tabela_sku");
+			add.innerHTML =ressult;
 		}
 	});
 }
@@ -507,8 +507,8 @@ function skuConsulta(code,name) {
         method: "POST",                    
         data: dados,
         success: function(ressult) {
-        	teste=ressult.getElementById("1").value;
-			console.log(teste);
+        	var r=ressult.split("¨");
+        	console.log(r);
         }
     });
 }
