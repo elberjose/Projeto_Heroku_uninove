@@ -22,23 +22,23 @@ function loadFile(event,ident,id) {
 	}
 
 	var aliImg=0;
-    var output = document.getElementById(id);
-    output.src=URL.createObjectURL(event.target.files[0]);
+    var imagem = document.getElementById(id);
+    imagem.src=URL.createObjectURL(event.target.files[0]);
 
 	  var xhr = new XMLHttpRequest();
 	  xhr.onload = function() {
 	    var reader = new FileReader();
 	    reader.onloadend = function() {
-	      output.alt=reader.result;
+	      imagem.alt=reader.result;
 	    }
 	    reader.readAsDataURL(xhr.response);
 	  };
-	  xhr.open('GET', output.src);
+	  xhr.open('GET', imagem.src);
 	  xhr.responseType = 'blob';
 	  xhr.send();
 
 
-	document.getElementById(id).style.display="table-cell";
+	document.getElementById(id).style.display="block";
 }
 
 
@@ -500,7 +500,7 @@ function sku() {
 
 function skuConsulta(code,name) {
 	var telas=["form-avaria","form-ccr","form-cce","form-recolha"];
-	
+
 	var dados ={'tela':'consulta','numero':code,'nome':name};
 	
 	$.ajax({	
@@ -515,6 +515,7 @@ function skuConsulta(code,name) {
     });
 }
 function addTela(variaveis,telas) {
+	var image = new Image();
 
 	switch (telas) {
  		case "form-avaria":
@@ -523,22 +524,23 @@ function addTela(variaveis,telas) {
  			document.getElementById("carga_avaria").value=variaveis[1];
  			document.getElementById("produto_avaria").value=variaveis[3];
  			document.getElementById("motivo_avaria").value=variaveis[4];
- 			document.getElementById("output1-avaria").src=variaveis[5];
- 			document.getElementById("output1-avaria").src=variaveis[6];
- 			document.getElementById("output1-avaria").src=variaveis[7];
- 			document.getElementById("output1-avaria").src=variaveis[8];
+ 			document.getElementById("output1-avaria").src=URL.createObjectURL(variaveis[5]);
+ 			document.getElementById("output1-avaria").src=URL.createObjectURL(variaveis[6]);
+ 			document.getElementById("output1-avaria").src=URL.createObjectURL(variaveis[7]);
+ 			document.getElementById("output1-avaria").src=URL.createObjectURL(variaveis[8]);
 
  		break;
  		case "form-ccr":
  			tela(telas);
+
  			document.getElementById("placa_ccr").value=variaveis[0];
  			document.getElementById("carga_ccr").value=variaveis[1];
  			document.getElementById("produto_ccr").value=variaveis[3];
  			document.getElementById("cliente_ccr").value=variaveis[4];
- 			document.getElementById("output1-ccr").src=variaveis[5];
- 			document.getElementById("output1-ccr").src=variaveis[6];
- 			document.getElementById("output1-ccr").src=variaveis[7];
- 			document.getElementById("output1-ccr").src=variaveis[8];
+ 			document.getElementById("output1-ccr").src=URL.createObjectURL(variaveis[5]);
+ 			document.getElementById("output1-ccr").src=URL.createObjectURL(variaveis[6]);
+ 			document.getElementById("output1-ccr").src=URL.createObjectURL(variaveis[7]);
+ 			document.getElementById("output1-ccr").src=URL.createObjectURL(variaveis[8]);
  		break;
  		case "form-cce":
  			tela(telas);
@@ -546,8 +548,8 @@ function addTela(variaveis,telas) {
  			document.getElementById("oe_cce").value=variaveis[1];
  			document.getElementById("confe_cce").value=variaveis[3];
  			document.getElementById("cliente_cce").value=variaveis[4];
- 			document.getElementById("output1-cce").src=variaveis[5];
- 			document.getElementById("output2-cce").src=variaveis[6];
+ 			document.getElementById("output1-cce").src=URL.createObjectURL(variaveis[5]);
+ 			document.getElementById("output2-cce").src=URL.createObjectURL(variaveis[6]);
  		break;
  		case "form-recolha":
  			tela(telas);
