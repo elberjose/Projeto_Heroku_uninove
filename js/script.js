@@ -524,10 +524,10 @@ function addTela(variaveis,telas) {
  			document.getElementById("carga_avaria").value=variaveis[1];
  			document.getElementById("produto_avaria").value=variaveis[3];
  			document.getElementById("motivo_avaria").value=variaveis[4];
- 			document.getElementById("output1-avaria").src=URL.createObjectURL(variaveis[5]);
- 			document.getElementById("output1-avaria").src=URL.createObjectURL(variaveis[6]);
- 			document.getElementById("output1-avaria").src=URL.createObjectURL(variaveis[7]);
- 			document.getElementById("output1-avaria").src=URL.createObjectURL(variaveis[8]);
+ 			document.getElementById("output1-avaria").src=variaveis[5];
+ 			document.getElementById("output1-avaria").src=variaveis[6];
+ 			document.getElementById("output1-avaria").src=variaveis[7];
+ 			document.getElementById("output1-avaria").src=variaveis[8];
 
  		break;
  		case "form-ccr":
@@ -537,10 +537,10 @@ function addTela(variaveis,telas) {
  			document.getElementById("carga_ccr").value=variaveis[1];
  			document.getElementById("produto_ccr").value=variaveis[3];
  			document.getElementById("cliente_ccr").value=variaveis[4];
- 			document.getElementById("output1-ccr").src=URL.createObjectURL(variaveis[5]);
- 			document.getElementById("output1-ccr").src=URL.createObjectURL(variaveis[6]);
- 			document.getElementById("output1-ccr").src=URL.createObjectURL(variaveis[7]);
- 			document.getElementById("output1-ccr").src=URL.createObjectURL(variaveis[8]);
+ 			document.getElementById("output1-ccr").src=variaveis[5];
+ 			document.getElementById("output1-ccr").src=variaveis[6];
+ 			document.getElementById("output1-ccr").src=variaveis[7];
+ 			document.getElementById("output1-ccr").src=variaveis[8];
  		break;
  		case "form-cce":
  			tela(telas);
@@ -548,8 +548,8 @@ function addTela(variaveis,telas) {
  			document.getElementById("oe_cce").value=variaveis[1];
  			document.getElementById("confe_cce").value=variaveis[3];
  			document.getElementById("cliente_cce").value=variaveis[4];
- 			document.getElementById("output1-cce").src=URL.createObjectURL(variaveis[5]);
- 			document.getElementById("output2-cce").src=URL.createObjectURL(variaveis[6]);
+ 			document.getElementById("output1-cce").src=variaveis[5];
+ 			document.getElementById("output2-cce").src=variaveis[6];
  		break;
  		case "form-recolha":
  			tela(telas);
