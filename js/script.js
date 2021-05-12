@@ -384,7 +384,7 @@ function tela(telas) {
 		document.getElementById(element).style.display="none";
 		document.getElementById(element).reset();
 	});
-
+	document.getElementById(telas).reset();
 	document.getElementById(telas).style.display="block";
 
 }
@@ -508,14 +508,16 @@ function skuConsulta(code,name) {
         data: dados,
         success: function(ressult) {
         	var variaveis=ressult.split("¨");
+        	console.log(variaveis);
        		addTela(variaveis,telas[name]);
         }
     });
 }
 function addTela(variaveis,telas) {
-	
+
 	switch (telas) {
  		case "form-avaria":
+ 			tela(telas);
  			document.getElementById("placa_avaria").value=variaveis[0];
  			document.getElementById("carga_avaria").value=variaveis[1];
  			document.getElementById("produto_avaria").value=variaveis[3];
@@ -524,8 +526,10 @@ function addTela(variaveis,telas) {
  			document.getElementById("output1-avaria").src=variaveis[6];
  			document.getElementById("output1-avaria").src=variaveis[7];
  			document.getElementById("output1-avaria").src=variaveis[8];
+
  		break;
  		case "form-ccr":
+ 			tela(telas);
  			document.getElementById("placa_ccr").value=variaveis[0];
  			document.getElementById("carga_ccr").value=variaveis[1];
  			document.getElementById("produto_ccr").value=variaveis[3];
@@ -536,6 +540,7 @@ function addTela(variaveis,telas) {
  			document.getElementById("output1-ccr").src=variaveis[8];
  		break;
  		case "form-cce":
+ 			tela(telas);
  			document.getElementById("placa_cce").value=variaveis[0];
  			document.getElementById("oe_cce").value=variaveis[1];
  			document.getElementById("confe_cce").value=variaveis[3];
@@ -544,13 +549,14 @@ function addTela(variaveis,telas) {
  			document.getElementById("output2-cce").src=variaveis[6];
  		break;
  		case "form-recolha":
+ 			tela(telas);
  			document.getElementById("placa_rac").value=variaveis[1];
  			document.getElementById("num_rac").value=variaveis[2];
  			document.getElementById("produto_rac").value=variaveis[4];
  			document.getElementById("motivo_rac").value=variaveis[5];
  		break;
  	}
- 	tela(telas);
+ 	
 }
 
 
