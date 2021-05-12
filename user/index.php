@@ -71,6 +71,7 @@
 						<input type="text" class="form-control" id="carga_avaria" placeholder="Ex.: 15054" required>
 					</div>
 				</div>
+				
 				<div class="row">
 					<div class="form-group">
 						<label>Produto: </label>

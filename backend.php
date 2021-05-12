@@ -331,7 +331,7 @@ elseif(isset($_POST['tela'])){
             try {
                 $teste=["AVARIA" =>1,
                        "RECEBIMENTO"=>2,
-                       "EXPEDICAO"=>3,
+                       "EXPEDIÇÃO"=>3,
                        "RECOLHA"=>4
                ];
                 $consulta= $pdo->query("SELECT sku.N_processo,sku.nome_process,sku.data_processo,cadastro_do_usuario.login FROM sku INNER JOIN cadastro_do_usuario ON sku.id_user=cadastro_do_usuario.id_user");

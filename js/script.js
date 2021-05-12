@@ -500,6 +500,7 @@ function sku() {
 
 function skuConsulta(code,name) {
 	var telas=["form-avaria","form-ccr","form-cce","form-recolha"];
+	
 	var dados ={'tela':'consulta','numero':code,'nome':name};
 	
 	$.ajax({	
