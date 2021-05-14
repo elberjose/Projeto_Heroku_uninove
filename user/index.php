@@ -231,9 +231,8 @@
 
 		<form id="sku-consulta" class="telas sku-consulta">
 			<br><br>
-			<fieldset class="sku">
-				<div class="row consulta">
-					<table>
+			<fieldset class="sku consulta">
+				<table>
 						<tr>
 							<th>Carga</th>
 							<th>Processo</th>
@@ -242,6 +241,8 @@
 							<th>&#x1f441;</th>
 						</tr>
 					</table>
+				<div class="row">
+					
 					<div class="consulta form-group">
 						<table id="tabela_sku">
 
