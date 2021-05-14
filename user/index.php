@@ -49,7 +49,7 @@
 				<li id="txt_ccr" onclick="tela('form-ccr')">RECEBIMENTO</li>
 				<li id="txt_cce" onclick="tela('form-cce')">EXPEDIÇÃO</li>
 				<li id="txt_recolhe" onclick="tela('form-recolha')">RECOLHA</li><br>
-				<li id="txt_SKU" onclick="sku(); tela('sku-consulta')">SKU</li>
+				<li id="txt_SKU" onclick="tela('sku-consulta');">SKU</li>
 			</ul>
 		</div>
 
@@ -232,18 +232,19 @@
 		<form id="sku-consulta" class="telas sku-consulta">
 			<br><br>
 			<fieldset class="sku">
-				<div class="row">
+				<div class="row consulta">
+					<table>
+						<tr>
+							<th>Carga</th>
+							<th>Processo</th>
+							<th>Login</th>
+							<th>Data</th>
+							<th>&#x1f441;</th>
+						</tr>
+					</table>
 					<div class="consulta form-group">
-						<table>
-							<tr>
-								<th>Carga</th>
-								<th>Processo</th>
-								<th>Login</th>
-								<th>Data</th>
-								<th>&#x1f441;</th>
-							</tr>
-						</table>
 						<table id="tabela_sku">
+
 						</table>
 					</div>
 				</div>

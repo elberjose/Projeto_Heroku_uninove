@@ -278,7 +278,7 @@ function login_user(){
         method: "POST",
         data: dados,
         success: function(ressult) {
-        	if (ressult=="1" || ==""){
+        	if (ressult=="1"){
 				window.location.href = "user/index.php";
 			}else if(!ressult){
 				window.location.href = "user/index.php";
@@ -467,7 +467,7 @@ function fcce() {
 		method: "POST",
 		data: dados,
 		success:function(ressult) {
-			cif (ressult==1){
+			if (ressult==1){
 				erro("Nota de Expedição Lançada");
 			}else{
 				erro("Erro<br>Tente Novamente");
