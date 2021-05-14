@@ -49,7 +49,7 @@
 				<li id="txt_ccr" onclick="tela('form-ccr')">RECEBIMENTO</li>
 				<li id="txt_cce" onclick="tela('form-cce')">EXPEDIÇÃO</li>
 				<li id="txt_recolhe" onclick="tela('form-recolha')">RECOLHA</li><br>
-				<li id="txt_SKU" onclick="tela('sku-consulta');">SKU</li>
+				<li id="txt_SKU" onclick="sku(); tela('sku-consulta');">SKU</li>
 			</ul>
 		</div>
 
