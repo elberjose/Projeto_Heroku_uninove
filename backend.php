@@ -30,16 +30,14 @@ if(isset($_POST['q'])){
             $consulta->execute(array(
                 'log' => $user,
                 'senha' => $senha));
-
+            
            if ($consulta->rowCount()) {
                 session_start();
-                if (empty($_SESSION['user'])) {
-                    $_SESSION['user'] = $user;
-                     foreach($consulta as $row) {
-                        $_SESSION['id_user']=$row['id_user'];
-                        echo "1";
-                     } 
-                }
+                $_SESSION['user'] = $user;
+                foreach($consulta as $row) {
+                    $_SESSION['id_user']=$row['id_user'];
+                    echo "1";
+                } 
             }else{
                 echo "Usuario não encontrado";
             }
