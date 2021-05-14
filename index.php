@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(!isset($_SESSION['id_user'])){
-		header("Location: /user/");
+		header("Location: user/");
 		die();
 	} 
  ?>

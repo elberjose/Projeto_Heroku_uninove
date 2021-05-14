@@ -4,7 +4,7 @@
 		header("Location: ../");
 		die();
 	} 
- ?>
+?>
 <!DOCTYPE html>
 <html>
 <head>
