@@ -278,7 +278,9 @@ function login_user(){
         method: "POST",
         data: dados,
         success: function(ressult) {
-        	if (ressult=="1" || ressult==""){
+        	if (ressult=="1" || ==""){
+				window.location.href = "user/index.php";
+			}else if(!ressult){
 				window.location.href = "user/index.php";
 			}else{
 				erro(ressult);
