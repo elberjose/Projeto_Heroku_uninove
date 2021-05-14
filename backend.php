@@ -334,7 +334,7 @@ elseif(isset($_POST['tela'])){
                        "EXPEDIÇÃO"=>3,
                        "RECOLHA"=>4
                ];
-                $consulta= $pdo->query("SELECT sku.N_processo,sku.nome_process,sku.data_processo,cadastro_do_usuario.login FROM sku INNER JOIN cadastro_do_usuario ON sku.id_user=cadastro_do_usuario.id_user");
+                $consulta= $pdo->query("SELECT sku.N_processo,sku.nome_process,sku.data_processo,cadastro_do_usuario.login FROM sku  INNER JOIN cadastro_do_usuario ON sku.id_user=cadastro_do_usuario.id_user ORDER BY sku.data_processo");
                 foreach($consulta as $row) {
                     $data=implode("/",array_reverse(explode("-",$row["data_processo"])));
                     print_r("

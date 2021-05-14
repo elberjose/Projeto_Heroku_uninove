@@ -21,9 +21,9 @@
 
 		<nav class="menu-cabecalho">
 			<ul>
-				<a href="index.php"><li> Login </li></a> 
-				<a href="cadastro.php"><li> Cadastro </li></a> 
-				<a href="empresa.php"><li> Empresa </li></a>
+				<a href="index.php"><li>Login</li></a> 
+				<a href="cadastro.php"><li>Cadastro</li></a> 
+				<a href="empresa.php"><li>Empresa</li></a>
 			</ul>
 		</nav>
 	</header>

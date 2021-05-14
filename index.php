@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['id_user'])){
+		header("Location: /user/");
+		die();
+	} 
+ ?>
 <!DOCTYPE HTML>
 <html lang="pt-BR">
 <head>

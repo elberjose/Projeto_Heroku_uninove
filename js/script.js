@@ -278,7 +278,7 @@ function login_user(){
         method: "POST",
         data: dados,
         success: function(ressult) {
-        	if (ressult=="1"){
+        	if (ressult=="1" || ressult==""){
 				window.location.href = "user/index.php";
 			}else{
 				erro(ressult);
@@ -409,7 +409,11 @@ function favaria() {
 		method: "POST",
 		data: dados,
 		success:function(ressult) {
-			console.log(ressult);
+			if (ressult==1){
+				erro("Nota de Avaria Lançada");
+			}else{
+				erro("Erro<br>Tente Novamente");
+			}
 		}
 	});
 
@@ -434,7 +438,11 @@ function fccr() {
 		method: "POST",
 		data: dados,
 		success:function(ressult) {
-			console.log(ressult);
+			if (ressult==1){
+				erro("Nota de Recebimento Lançado");
+			}else{
+				erro("Erro<br>Tente Novamente");
+			}
 		}
 	});
 }
@@ -457,7 +465,11 @@ function fcce() {
 		method: "POST",
 		data: dados,
 		success:function(ressult) {
-			console.log(ressult);
+			cif (ressult==1){
+				erro("Nota de Expedição Lançada");
+			}else{
+				erro("Erro<br>Tente Novamente");
+			}
 		}
 	});
 
@@ -478,7 +490,11 @@ function frecolha() {
 		method: "POST",
 		data: dados,
 		success:function(ressult) {
-			console.log(ressult)
+			if (ressult==1){
+				erro("Nota de Recolha Lançado");
+			}else{
+				erro("Erro<br>Tente Novamente");
+			}
 		}
 	});
 }

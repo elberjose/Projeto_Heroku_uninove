@@ -27,7 +27,7 @@
 		<nav class="menu-user menu-cabecalho">
 			<ul>
 				<li>&#9881;</li>
-				<li onclick="sair()">Sair</li>
+				<a href="#"><li onclick="sair()">Sair</li></a>
 			</ul>
 		</nav>
 	</header>
@@ -44,7 +44,7 @@
 				<a href="#"><li onclick="tela('form-cce')">CCE</li></a><br><br>
 				<a href="#"><li onclick="tela('form-recolha')">RECOLHA</li></a>
 				<a href="#"><li onclick="sku(); tela('sku-consulta');">SKU</li></a>
-			<li>Sair</li>
+				<a href="#"><li onclick="sair()">Sair</li></a>
 			</ul>
 		</nav>
 	</header>
@@ -243,7 +243,7 @@
 					<div class="consulta form-group">
 						<table>
 							<tr>
-								<th>&#x2716;</th>
+								<th>Carga</th>
 								<th>Processo</th>
 								<th>Login</th>
 								<th>Data</th>
