@@ -236,6 +236,16 @@
 				
 				<div class="row">
 					<div class="consulta form-group">
+						<table>
+							<tr>
+								<th>Carga</th>
+								<th>Processo</th>
+								<th>Login</th>
+								<th>Data</th>
+								<th>&#x1f441;</th>
+							</tr>
+
+						</table>
 						<table id="tabela_sku">
 							<tr>
 								<th>Carga</th>
