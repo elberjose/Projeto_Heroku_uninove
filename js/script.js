@@ -13,6 +13,7 @@ $(document).ready(function() {
 	$("#placa_cce").mask('SSS-0A00');
 	$("#placa_rec").mask('SSS-0A00');
 	$("#placa_rac").mask('SSS-0A00');
+	
 });
 
 function loadFile(event,ident,id) {
