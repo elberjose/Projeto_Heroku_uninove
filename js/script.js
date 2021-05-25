@@ -7,11 +7,12 @@ $(document).ready(function() {
 	$("#carga_avaria").mask("0000000000");
 	$("#carga_cce").mask("0000000000");
 	$("#carga_ccr").mask("0000000000");
-	$("#num_rec").mask('000000');
+	$("#num_rec").mask('0000000000');
 	$("#placa_avaria").mask('SSS-0A00');
 	$("#placa_ccr").mask('SSS-0A00');
 	$("#placa_cce").mask('SSS-0A00');
 	$("#placa_rec").mask('SSS-0A00');
+	$("#placa_rac").mask('SSS-0A00');
 });
 
 function loadFile(event,ident,id) {
