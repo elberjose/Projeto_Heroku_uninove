@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -234,17 +235,15 @@
 			<fieldset class="sku">
 				
 				<div class="row">
-					<table>
-						<tr>
-							<th>Carga</th>
-							<th>Processo</th>
-							<th>Login</th>
-							<th>Data</th>
-							<th>&#x1f441;</th>
-						</tr>
-					</table>
 					<div class="consulta form-group">
 						<table id="tabela_sku">
+							<tr>
+								<th>Carga</th>
+								<th>Processo</th>
+								<th>Login</th>
+								<th>Data</th>
+								<th>&#x1f441;</th>
+							</tr>
 
 						</table>
 					</div>
