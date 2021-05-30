@@ -594,7 +594,10 @@ function config() {
         	var variaveis=ressult.split("¨");
         	console.log(variaveis);
        		addConfig(variaveis);
-        }
+        },
+	    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+	        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+	    }  
     });
 }
 function addConfig(argument) {
