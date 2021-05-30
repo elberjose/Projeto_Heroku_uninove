@@ -595,9 +595,6 @@ function config() {
         	console.log(variaveis);
        		addConfig(variaveis);
         }
-        error: function(argument) {
-        	console.log(argument);
-        }
     });
 }
 function addConfig(argument) {
