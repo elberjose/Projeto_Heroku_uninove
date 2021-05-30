@@ -596,7 +596,7 @@ function config() {
        		addConfig(variaveis);
         },
 	    error: function(XMLHttpRequest, textStatus, errorThrown) { 
-	        error("Status: " + textStatus+"Error: " + errorThrown); 
+	        erro("Status: " + textStatus+"Error: " + errorThrown); 
 	    }  
     });
 }
