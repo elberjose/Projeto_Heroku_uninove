@@ -583,8 +583,8 @@ function addTela(variaveis,telas) {
 }
 
 function config() {
-
-	var dados= {'tela':'configuracao'};
+	var teste="mais";
+	var dados= {'tela':'configuracao','mais':teste};
 
 	$.ajax({	
         url: "../backend.php",
@@ -596,10 +596,11 @@ function config() {
        		addConfig(variaveis);
         },
 	    error: function(XMLHttpRequest, textStatus, errorThrown) { 
-	        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+	        error("Status: " + textStatus+"Error: " + errorThrown); 
 	    }  
     });
 }
+
 function addConfig(argument) {
 	 document.getElementById("nome-conf").value=argument[0];
 	 document.getElementById("login-conf").value=argument[1];
@@ -608,6 +609,24 @@ function addConfig(argument) {
 	 document.getElementById("cargo").value=argument[4];
 }
 
+function loginConfig(argument) {
+	document.getElementById("login-conf").disabled=false;
+	document.getElementByid("btnlogin").value="Salvar Alteração";
+}
+function senhaConfig(argument) {
+	document.getElementById("new-password").disabled=false;
+	document.getElementById("con-password").disabled=false;
+	document.getElementByid("btnsenha").value="Salvar Alteração";
+}
+function mailConfig(argument) {
+	document.getElementById("email").disabled=false;
+	document.getElementByid("btnmail").value="Salvar Alteração";
+}
+function ambosConfig(argument) {
+	document.getElementById("setor").disabled=false;
+	document.getElementById("cargo").disabled=false;
+	document.getElementByid("btncargo").value="Salvar Alteração";
+}
 
 
 

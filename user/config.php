@@ -57,7 +57,7 @@
 </div>
 
 
-<form class="form cadastro" id="form">
+<form class="form cadastro" id="form" onsubmit="event.preventDefault();">
 	<fieldset>
 		<div class="row">
 			<div class="form-group">
@@ -69,7 +69,7 @@
 			</div>
 
 			<div class="form-group-one">
-				<button class="btn btn-primary" onclick="loginConfig()">Mudar Login</button>
+				<button class="btn btn-primary" id="btnlogin" onclick="loginConfig()">Mudar Login</button>
 			</div>
 		</div>
 		<hr>
@@ -79,12 +79,12 @@
 				<input type="password" class="form-control" id="new-password" placeholder="Senha" disabled="">
 
 				<label>Repita a Senha: </label>
-				<input type="password" class="form-control" id="con-senha" placeholder="Confirme Sua Senha" autocomplete="off" onblur="senha()" disabled="">
+				<input type="password" class="form-control" id="con-password" placeholder="Confirme Sua Senha" autocomplete="off" onblur="senha()" disabled="">
 				<span class="erro" id="erro_senha">Senhas não Compativeis</span>
 			</div>
 
 			<div class="form-group-one">
-				<button class="btn btn-primary">Mudar Senha</button>
+				<button class="btn btn-primary" id="btnsenha" onclick="senhaConfig()">Mudar Senha</button>
 			</div>
 		</div>
 
@@ -97,7 +97,7 @@
 			</div>
 
 			<div class="form-group-one">
-					<button class="btn btn-primary">Mudar Email</button>
+					<button class="btn btn-primary" id="btnmail" onclick="mailConfig()">Mudar Email</button>
 			</div>
 
 		</div>
@@ -113,9 +113,7 @@
 				<input type="text" class="form-control" id="cargo" placeholder="Insira seu Cargo aqui" disabled="">
 
 				<div class="form-group-one">
-					<button class="btn btn-primary">Mudar Setor</button>
-					<button class="btn btn-primary">Mudar Cargo</button>
-					<button class="btn btn-primary">Mudar Ambos</button>
+					<button class="btn btn-primary" id="btncargo" onclick="ambosConfig()">Alterar Informações</button>
 				</div>
 			</div>
 		</div>
