@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 	<meta charset="utf-8">
@@ -20,7 +19,7 @@
 
 		<nav class="menu-user menu-cabecalho">
 			<ul>
-				<li>&#9881;</li>
+				<a href="config.php"><li>&#9881;</li></a>
 				<a href="#"><li onclick="sair()">Sair</li></a>
 			</ul>
 		</nav>
