@@ -583,7 +583,9 @@ function addTela(variaveis,telas) {
 }
 
 function config() {
-	var dados= {'tela':'DADOS'};
+
+	var dados= {'tela':'configuracao'};
+
 	$.ajax({	
         url: "../backend.php",
         method: "POST",                    
@@ -593,21 +595,20 @@ function config() {
         	console.log(variaveis);
        		addConfig(variaveis);
         }
+        error: function(argument) {
+        	console.log(argument);
+        }
     });
 }
 function addConfig(argument) {
-	 //nome login email setor cargo
 	 document.getElementById("nome-conf").value=argument[0];
 	 document.getElementById("login-conf").value=argument[1];
 	 document.getElementById("email").value=argument[2];
 	 document.getElementById("setor").value=argument[3];
 	 document.getElementById("cargo").value=argument[4];
-
 }
 
-function loginConfig(){
-	document.getElementById("login-conf").disabled = false;
-}
+
 
 
 

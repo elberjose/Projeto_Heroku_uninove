@@ -177,7 +177,9 @@ if(isset($_POST['q'])){
 
 elseif(isset($_POST['tela'])){
     session_start();
+
     $tela=$_POST['tela'];
+
     switch ($tela) {
         case 'avaria':
             $placa=str_replace("-","", $_POST["placa"]);
@@ -393,18 +395,17 @@ elseif(isset($_POST['tela'])){
             $pdo = null;        
         break;
 
-        case 'DADOS':
+        case 'configuracao':
 
         $pesquisa="SELECT nome_u, login, email, setor, cargo FROM cadastro_do_usuario WHERE id_user=".$_SESSION['id_user'];
         try {
-            $consulta= $pdo->query(pesquisa);
-                
+            $consulta=$pdo->query(pesquisa);
             foreach($consulta as $row) {
                 echo $row[0]."¨";
                 echo $row[1]."¨";
                 echo $row[2]."¨";
                 echo $row[3]."¨";
-                echo $row[4]."¨";
+                echo $row[4];
             }
 
         } catch ( PDOException $excecao ){

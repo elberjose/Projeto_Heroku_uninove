@@ -37,6 +37,7 @@
 				<a href="#"><li onclick="tela('form-cce')">CCE</li></a><br><br>
 				<a href="#"><li onclick="tela('form-recolha')">RECOLHA</li></a>
 				<a href="#"><li onclick="sku(); tela('sku-consulta');">SKU</li></a>
+				<a href="config.php"><li>&#9881;</li></a>
 				<a href="#"><li onclick="sair()">Sair</li></a>
 			</ul>
 		</nav>
