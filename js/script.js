@@ -47,6 +47,7 @@ function loadFile(event,ident,id) {
 function fechar() {
 	document.querySelector(".wrap").style.display = "none";
 }
+
 function erro(argument) {
 	document.getElementById("txt").innerHTML=argument;
 	document.querySelector(".wrap").style.display = "block";

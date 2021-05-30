@@ -395,7 +395,7 @@ elseif(isset($_POST['tela'])){
             $pdo = null;        
         break;
 
-        case 'configuracao':
+        case 'configuracao'
 
             $consulta = $pdo->prepare("SELECT nome_u, login, email, setor, cargo FROM cadastro_do_usuario WHERE id_user:id");
 
