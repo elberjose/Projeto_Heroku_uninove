@@ -610,20 +610,20 @@ function addConfig(argument) {
 	 document.getElementById("cargo").value=argument[4];
 }
 
-function loginConfig(argument) {
+function loginConfig() {
 	document.getElementById("login-conf").disabled=false;
 	document.getElementByid("btnlogin").value="Salvar Alteração";
 }
-function senhaConfig(argument) {
+function senhaConfig() {
 	document.getElementById("new-password").disabled=false;
 	document.getElementById("con-password").disabled=false;
 	document.getElementByid("btnsenha").value="Salvar Alteração";
 }
-function mailConfig(argument) {
+function mailConfig() {
 	document.getElementById("email").disabled=false;
 	document.getElementByid("btnmail").value="Salvar Alteração";
 }
-function ambosConfig(argument) {
+function ambosConfig() {
 	document.getElementById("setor").disabled=false;
 	document.getElementById("cargo").disabled=false;
 	document.getElementByid("btncargo").value="Salvar Alteração";
