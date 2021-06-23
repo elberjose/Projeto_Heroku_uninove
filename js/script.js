@@ -584,12 +584,12 @@ function addTela(variaveis,telas) {
 }
 
 function config() {
-	var teste="mais";
-	var dados= {'tela':'configuracao','mais':teste};
+	var dados= {'tela':'configuracao'};
 
 	$.ajax({	
         url: "../backend.php",
-        method: "POST",                    
+        method: "POST",
+        dataType : "text",             
         data: dados,
         success: function(ressult) {
         	var variaveis=ressult.split("¨");
