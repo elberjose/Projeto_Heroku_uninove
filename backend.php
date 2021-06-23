@@ -410,7 +410,6 @@ elseif(isset($_POST['tela'])){
         break;
 
         default:
-            $pdo = null;
             break;
     }
 }
